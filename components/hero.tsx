@@ -10,11 +10,15 @@ export function Hero() {
 
         
         <div className="w-1/2 h-full flex items-center justify-start overflow-hidden">
-          <img
-            src="/Removal-803.png"
-            alt="Apex AI Characters"
-            className="h-full object-contain scale-[1.5] -translate-x-24"
-          />
+          <div className="relative flex ml-[12rem] justify-center lg:justify-end">
+                    <div className="relative w-full max-w-lg animate-float">
+                        <img
+                            alt="Futuristic spaceship with crewmates"
+                            className="relative rounded-3xl scale-150 "
+                            src="/spaceship.svg"
+                        />
+                    </div>
+                </div>
         </div>
 
         
@@ -39,7 +43,7 @@ export function Hero() {
       </div>
 
       
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none animate-float ">
         <img
           src="/ico-red-player.svg"
           className="absolute top-[8%] right-[32%] w-20 opacity-50"

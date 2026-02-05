@@ -1,10 +1,19 @@
 'use client'
-
+import { useState } from "react";
+import IntroLoader from "@/components/IntroLoader";
 import { SparklesCore } from '@/components/ui/sparkles'
 import { Hero } from '@/components/hero'
+import Navbar from "@/components/nav"
+import Tracks from '@/components/tracks'
+import Timeline from '@/components/timeline'
 
 export default function Page() {
+  const [done, setDone] = useState(false);
   return (
+    <>
+    {!done && <IntroLoader onFinish={() => setDone(true)} />}
+
+      {done && (
     <div className="relative w-full bg-black overflow-x-hidden">
       {/* Fixed Sparkles Background - Full viewport coverage */}
       <div className="fixed inset-0 w-screen h-screen pointer-events-none z-5">
@@ -22,7 +31,10 @@ export default function Page() {
       {/* Content Wrapper */}
       <div className="relative z-10">
         {/* Section 1 - Hero */}
+        <Navbar />
         <Hero />
+        <Tracks />
+        <Timeline />
 
         {/* Section 2 - Features */}
         <section className="min-h-screen flex flex-col items-center justify-center py-20 px-4">
@@ -85,5 +97,7 @@ export default function Page() {
         </section>
       </div>
     </div>
+    )}
+    </>
   )
 }

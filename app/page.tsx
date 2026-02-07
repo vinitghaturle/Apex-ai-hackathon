@@ -11,6 +11,7 @@ import { Imposter } from "@/components/imposter";
 import { Crew } from "@/components/crew";
 import { CommunityPartner } from "@/components/communityPartner";
 import Footer from "@/components/Footer";
+import CTA from "@/components/CTA";
 
 const timelineData = [
   {
@@ -226,19 +227,7 @@ export default function Page() {
         </section>
 
         {/* Section 4 - CTA */}
-        <section className="min-h-screen flex flex-col items-center justify-center py-20 px-4">
-          <div className="text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Ready to Get Started?
-            </h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl">
-              Join thousands of users who are already building amazing products
-            </p>
-            <button className="px-8 py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition">
-              Start Now
-            </button>
-          </div>
-        </section>
+        <CTA />
 
         {/* Section 5 - Footer */}
         <Footer />

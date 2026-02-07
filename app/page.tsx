@@ -12,6 +12,7 @@ import { Crew } from "@/components/crew";
 import { CommunityPartner } from "@/components/communityPartner";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
+import AboutUS from "@/components/AboutUS";
 
 const timelineData = [
   {
@@ -71,33 +72,23 @@ const facultyMembers = [
 const teamMembers = [
   {
   imageSrc: "/Removal-803.png",
-  name: "Pranay sir",
-  role: "Lead Researcher"
+  name: "Soham Kale",
+  role: "Technorian President"
 },
 {
   imageSrc: "/Removal-803.png",
-  name: "Pranay sir",
-  role: "Lead Researcher"
+  name: "Karan Dubey",
+  role: "APEX - AI Lead"
 },
 {
-  imageSrc: "/Removal-803.png",
-  name: "Pranay sir",
-  role: "Lead Researcher"
+  imageSrc: "/Nandini.jpeg",
+  name: "Nandini Jaiswal",
+  role: "Organizer - GDGoC GHRCE"
 },
 {
-  imageSrc: "/Removal-803.png",
-  name: "Pranay sir",
-  role: "Lead Researcher"
-},
-{
-  imageSrc: "/Removal-803.png",
-  name: "Pranay sir",
-  role: "Lead Researcher"
-},
-{
-  imageSrc: "/Removal-803.png",
-  name: "Dr. Alan Turing",
-  role: "Lead Researcher"
+  imageSrc: "/prince.jpeg",
+  name: "Prince Rayamwar",
+  role: "Chair, IEEE CS SB"
 }
 ];
 export default function Page() {
@@ -126,6 +117,7 @@ export default function Page() {
         {/* Section 1 - Hero */}
         <Navbar />
         <Hero />
+        <AboutUS />
         <Tracks />
         {/* <Time data={timelineData} /> */}
         <HorizontalTimeline data={timelineData} />
@@ -208,21 +200,6 @@ export default function Page() {
                 </p>
               </div>
             ))}
-          </div>
-        </section>
-
-        {/* Section 3 - About */}
-        <section className="min-h-screen flex flex-col items-center justify-center py-20 px-4">
-          <div className="max-w-3xl">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 text-center">
-              About Us
-            </h2>
-            <p className="text-lg text-gray-300 mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. The sparkles effect creates a beautiful background that stays fixed as you scroll.
-            </p>
-            <p className="text-lg text-gray-300">
-              Try scrolling down to see how the effect behaves across different sections. The particles remain in place while your content scrolls over them, creating a stunning visual experience.
-            </p>
           </div>
         </section>
 

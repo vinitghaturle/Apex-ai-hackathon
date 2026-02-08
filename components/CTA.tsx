@@ -4,7 +4,7 @@ const CTA = ({
   title = "APEX-AI : The AI Hackathon", 
   subtitle = "10 Hours. Hundreds of developers. Infinite possibilities. Join the sprint to build solutions that actually matter.",
   date = "February 18, 2026",
-  image = "/bg-team.png"
+  image = "https://apex-assets-exl.pages.dev/image/bg-team.png"
 }) => {
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden font-sans">

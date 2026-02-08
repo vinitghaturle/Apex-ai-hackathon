@@ -5,7 +5,6 @@ import { SparklesCore } from '@/components/ui/sparkles'
 import { Hero } from '@/components/hero'
 import Navbar from "@/components/nav"
 import Tracks from '@/components/tracks'
-import { Time } from "@/components/time";
 import { HorizontalTimeline } from "@/components/AmongUsTimeline";
 import { Imposter } from "@/components/imposter";
 import { Crew } from "@/components/crew";
@@ -58,35 +57,35 @@ const timelineData = [
 ];
 const facultyMembers = [
   {
-  imageSrc: "/Removal-803.png",
-  name: "Pranay sir",
-  role: "Lead Researcher"
+  imageSrc: "sir.jpeg",
+  name: "Dr. Abhay Khalatkar",
+  role: "Associate Professor, GHRCE"
 },
 
 {
-  imageSrc: "/Removal-803.png",
-  name: "Dr. Alan Turing",
-  role: "Lead Researcher"
+  imageSrc: "maam.jpeg",
+  name: "Prof. Archana Deshpande",
+  role: "Asscoiate Professor, GHRCE"
 }
 ];
 const teamMembers = [
   {
-  imageSrc: "/Removal-803.png",
+  imageSrc: "/soham.jpeg",
   name: "Soham Kale",
   role: "Technorian President"
 },
 {
-  imageSrc: "/Removal-803.png",
+  imageSrc: "https://apex-assets-exl.pages.dev/image/Removal-803.png",
   name: "Karan Dubey",
   role: "APEX - AI Lead"
 },
 {
-  imageSrc: "/Nandini.jpeg",
+  imageSrc: "https://apex-assets-exl.pages.dev/image/Nandini.jpeg",
   name: "Nandini Jaiswal",
   role: "Organizer - GDGoC GHRCE"
 },
 {
-  imageSrc: "/prince.jpeg",
+  imageSrc: "https://apex-assets-exl.pages.dev/image/prince.jpeg",
   name: "Prince Rayamwar",
   role: "Chair, IEEE CS SB"
 }
@@ -116,16 +115,27 @@ export default function Page() {
       <div className="relative z-10">
         {/* Section 1 - Hero */}
         <Navbar />
-        <Hero />
+        <section className="pt-10">
+        <section id="home">
+        <Hero  />
+        </section>
+        </section>
+        <section id="about">
         <AboutUS />
+        </section>
+        <section id="tracks">
         <Tracks />
+        </section>
         {/* <Time data={timelineData} /> */}
+        <section id="schedule">
         <HorizontalTimeline data={timelineData} />
+        </section>
+        <section id="team">
         <div className="relative min-h-screen">
         <div className="absolute top-[9rem] left-1/2 -translate-x-1/2 z-50">
         <img 
           loading="lazy" 
-          src="impofac.png" 
+          src="https://apex-assets-exl.pages.dev/image/impofac.png" 
           className="w-[25vw] h-auto object-contain opacity-80" 
           alt="The Faculty Header" 
         />
@@ -138,13 +148,14 @@ export default function Page() {
         ))}
       </div>
       </div>
+      </section>
       
 
       <div className="relative min-h-screen">
         <div className="absolute top-[9rem] left-1/2 -translate-x-1/2 z-50">
         <img 
           loading="lazy" 
-          src="crewteam.png" 
+          src="https://apex-assets-exl.pages.dev/image/crewteam.png" 
           className="w-[25vw] h-auto object-contain opacity-85" 
           alt="The team Header" 
         />
@@ -181,7 +192,7 @@ export default function Page() {
 
 
         {/* Section 2 - Features */}
-        <section className="min-h-screen flex flex-col items-center justify-center py-20 px-4">
+        {/* <section className="min-h-screen flex flex-col items-center justify-center py-20 px-4">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-12 text-center">
             Features
           </h2>
@@ -201,7 +212,7 @@ export default function Page() {
               </div>
             ))}
           </div>
-        </section>
+        </section> */}
 
         {/* Section 4 - CTA */}
         <CTA />

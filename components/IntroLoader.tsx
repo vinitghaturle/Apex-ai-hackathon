@@ -65,7 +65,7 @@ export default function IntroLoader({
         {step === 0 && (
           <>
             <Image
-              src="/charwalk.webp"
+              src="https://apex-assets-exl.pages.dev/image/charwalk.webp"
               alt="Intro 1"
               width={240}
               height={240}
@@ -85,7 +85,7 @@ export default function IntroLoader({
         {step === 1 && (
           <div className="absolute inset-0 z-[10]">
             <Image
-              src="/impokill1.webp"
+              src="https://apex-assets-exl.pages.dev/image/impokill1.webp"
               alt="Intro 2"
               fill
               priority
@@ -96,7 +96,7 @@ export default function IntroLoader({
       </div>
 
       
-      <audio ref={audioRef} src="/impokill.ogg" preload="auto" />
+      <audio ref={audioRef} src="https://apex-assets-exl.pages.dev/image/impokill.ogg" preload="auto" />
     </div>
   );
 }

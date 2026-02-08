@@ -103,7 +103,7 @@ export const HorizontalTimeline = ({ data }: { data: TimelineEntry[] }) => {
           style={{ left: "0%" }} // Controlled by GSAP
         >
           <img 
-            src="/charwalk.webp" 
+            src="https://apex-assets-exl.pages.dev/image/charwalk.webp" 
             alt="walking mascot" 
             className="w-full h-full object-contain"
           />

@@ -33,17 +33,17 @@ export const Crew = ({ data }: TeamProfileProps) => {
 
       {/* 3. The Orbits: They will now rotate around that absolute center */}
       <OrbitingCircles radius={120} duration={25}>
-          <img src="/ico-purple-player.svg" className="h-8 w-8" />
-          <img src="/ico-green-player.svg" className="h-8 w-8" />
-          <img src="/ico-red-player.svg" className="h-8 w-8" />
-          <img src="/ico-yellow-player.svg" className="h-8 w-8" />
+          <img src="https://apex-assets-exl.pages.dev/image/ico-purple-player.svg" className="h-8 w-8" />
+          <img src="https://apex-assets-exl.pages.dev/image/ico-green-player.svg" className="h-8 w-8" />
+          <img src="https://apex-assets-exl.pages.dev/image/ico-red-player.svg" className="h-8 w-8" />
+          <img src="https://apex-assets-exl.pages.dev/image/ico-yellow-player.svg" className="h-8 w-8" />
       </OrbitingCircles>
 
       <OrbitingCircles radius={160} duration={25} reverse>
-          <img src="/ico-purple-player.svg" className="h-8 w-8" />
-          <img src="/ico-green-player.svg" className="h-8 w-8" />
-          <img src="/ico-red-player.svg" className="h-8 w-8" />
-          <img src="/ico-yellow-player.svg" className="h-8 w-8" />
+          <img src="https://apex-assets-exl.pages.dev/image/ico-purple-player.svg" className="h-8 w-8" />
+          <img src="https://apex-assets-exl.pages.dev/image/ico-green-player.svg" className="h-8 w-8" />
+          <img src="https://apex-assets-exl.pages.dev/image/ico-red-player.svg" className="h-8 w-8" />
+          <img src="https://apex-assets-exl.pages.dev/image/ico-yellow-player.svg" className="h-8 w-8" />
       </OrbitingCircles>
 
       {/* 4. Bottom Info: Absolute position at the bottom so it doesn't move with the orbits */}

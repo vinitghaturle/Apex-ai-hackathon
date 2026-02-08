@@ -15,7 +15,7 @@ export function Hero() {
                         <img
                             alt="Futuristic spaceship with crewmates"
                             className="relative rounded-3xl scale-150 "
-                            src="/spaceship.svg"
+                            src="https://apex-assets-exl.pages.dev/image/spaceship.svg"
                         />
                     </div>
                 </div>
@@ -45,22 +45,22 @@ export function Hero() {
       
       <div className="absolute inset-0 pointer-events-none animate-float ">
         <img
-          src="/ico-red-player.svg"
+          src="https://apex-assets-exl.pages.dev/image/ico-red-player.svg"
           className="absolute top-[8%] right-[32%] w-20 opacity-50"
           alt=""
         />
         <img
-          src="/ico-green-player.svg"
+          src="https://apex-assets-exl.pages.dev/image/ico-green-player.svg"
           className="absolute bottom-[12%] right-[36%] w-16 opacity-40"
           alt=""
         />
         <img
-          src="/ico-purple-player.svg"
+          src="https://apex-assets-exl.pages.dev/image/ico-purple-player.svg"
           className="absolute top-[14%] right-[10%] w-24 opacity-55"
           alt=""
         />
         <img
-          src="/ico-yellow-player.svg"
+          src="https://apex-assets-exl.pages.dev/image/ico-yellow-player.svg"
           className="absolute bottom-[18%] right-[12%] w-28 opacity-45"
           alt=""
         />

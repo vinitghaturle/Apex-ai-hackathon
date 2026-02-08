@@ -51,7 +51,7 @@ export function CommunityPartner() {
         <div className="flex flex-col justify-center">
           <Circle ref={centerRef} className="size-48 border-blue-500 border-4 shadow-[0_0_50px_-12px_rgba(59,130,246,0.5)]">
             <img 
-              src="/antragini.png" 
+              src="https://apex-assets-exl.pages.dev/image/antragini.png" 
               alt="Event Logo" 
               className="size-full object-contain pointer-events-none"
             />
@@ -73,7 +73,7 @@ export function CommunityPartner() {
         toRef={centerRef}
         curvature={-60}
         className="[&_path]:stroke-[6px]"
-        duration={3}
+        duration={1}
         startYOffset={0}
         endYOffset={-20} // Adjusts entry point on the large center circle
       />
@@ -85,7 +85,7 @@ export function CommunityPartner() {
         toRef={centerRef}
         curvature={60}
         className="[&_path]:stroke-[6px]"
-        duration={3}
+        duration={1}
         startYOffset={0}
         endYOffset={20} // Adjusts entry point on the large center circle
       />
@@ -96,7 +96,7 @@ export function CommunityPartner() {
         fromRef={partner3Ref}
         toRef={centerRef}
         className="[&_path]:stroke-[6px]"
-        duration={3}
+        duration={1}
         startYOffset={0}
         endYOffset={0}
       />
@@ -105,7 +105,7 @@ export function CommunityPartner() {
 }
 
 const Icons = {
-  partner1: () => <img src="/gdg.svg" alt="GDG" className="size-full scale-[4.5] object-contain" />,
-  partner2: () => <img src="/ieee.svg" alt="SRC" className="size-full scale-[4.5] object-contain" />,
-  partner3: () => <img src="/src.svg" alt="IEEE" className="size-full scale-[2] object-contain" />,
+  partner1: () => <img src="https://apex-assets-exl.pages.dev/image/gdg.svg" alt="GDG" className="size-full scale-[4.5] object-contain" />,
+  partner2: () => <img src="https://apex-assets-exl.pages.dev/image/ieee.svg" alt="SRC" className="size-full scale-[4.5] object-contain" />,
+  partner3: () => <img src="https://apex-assets-exl.pages.dev/image/src.svg" alt="IEEE" className="size-full scale-[2] object-contain" />,
 };

@@ -4,7 +4,7 @@ const AboutUS = ({
   title = "APEX-AI : The AI Hackathon", 
   subtitle = "10 Hours. Hundreds of developers. Infinite possibilities. Join the sprint to build solutions that actually matter.",
   date = "February 18, 2026",
-  image = "/about.svg"
+  image = "https://apex-assets-exl.pages.dev/image/about.svg"
 }) => {
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden font-sans p-6">
@@ -38,7 +38,7 @@ const AboutUS = ({
             <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
           </div>
           <img 
-          src="ABOUT.png" 
+          src="https://apex-assets-exl.pages.dev/image/ABOUT.png" 
           alt="Hackathon Background" 
           className="h-[4rem] w-auto object-contain opacity-80 py-3"
         />

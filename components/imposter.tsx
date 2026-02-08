@@ -34,22 +34,22 @@ export const Imposter = ({ data }: FacultyProfileProps) => {
 
       {/* 3. The Orbits: They will now rotate around that absolute center */}
       <OrbitingCircles radius={120} duration={25}>
-          <img src="/ico-purple-player.svg" className="h-8 w-8" />
-          <img src="/ico-green-player.svg" className="h-8 w-8" />
-          <img src="/ico-red-player.svg" className="h-8 w-8" />
-          <img src="/ico-yellow-player.svg" className="h-8 w-8" />
+          <img src="https://apex-assets-exl.pages.dev/image/ico-purple-player.svg" className="h-8 w-8" />
+          <img src="https://apex-assets-exl.pages.dev/image/ico-green-player.svg" className="h-8 w-8" />
+          <img src="https://apex-assets-exl.pages.dev/image/ico-red-player.svg" className="h-8 w-8" />
+          <img src="https://apex-assets-exl.pages.dev/image/ico-yellow-player.svg" className="h-8 w-8" />
       </OrbitingCircles>
 
       <OrbitingCircles radius={160} duration={25} reverse>
-          <img src="/ico-purple-player.svg" className="h-8 w-8" />
-          <img src="/ico-green-player.svg" className="h-8 w-8" />
-          <img src="/ico-red-player.svg" className="h-8 w-8" />
-          <img src="/ico-yellow-player.svg" className="h-8 w-8" />
+          <img src="https://apex-assets-exl.pages.dev/image/ico-purple-player.svg" className="h-8 w-8" />
+          <img src="https://apex-assets-exl.pages.dev/image/ico-green-player.svg" className="h-8 w-8" />
+          <img src="https://apex-assets-exl.pages.dev/image/ico-red-player.svg" className="h-8 w-8" />
+          <img src="https://apex-assets-exl.pages.dev/image/ico-yellow-player.svg" className="h-8 w-8" />
       </OrbitingCircles>
 
       {/* 4. Bottom Info: Absolute position at the bottom so it doesn't move with the orbits */}
       <div className="absolute bottom-12 z-30 text-center">
-        <h3 className="text-4xl font-black text-white uppercase tracking-tighter italic">
+        <h3 className="text-3xl font-black text-white uppercase tracking-tighter italic text-nowrap">
           {name}
         </h3>
         <p className="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">

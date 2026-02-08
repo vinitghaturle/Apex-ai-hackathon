@@ -32,7 +32,7 @@ const Footer = () => {
       {/* Background Image Overlay */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/thefoot.webp" // Replace with your image path
+          src="https://apex-assets-exl.pages.dev/image/thefoot.webp" // Replace with your image path
           alt="Footer Background"
           fill
           className="object-cover object-center opacity-55"

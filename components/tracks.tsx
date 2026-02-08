@@ -10,7 +10,7 @@ export default function Tracks() {
 
             <img
                alt="Futuristic spaceship with crewmates"
-               src="/shh.webp"
+               src="https://apex-assets-exl.pages.dev/image/shh.webp"
                className="mx-auto mt-2"
             />
             <h1 className="text-6xl font-joffrey font-bold text-white mt-[2rem] ">

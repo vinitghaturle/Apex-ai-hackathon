@@ -57,20 +57,20 @@ const timelineData = [
 ];
 const facultyMembers = [
   {
-  imageSrc: "sir.jpeg",
+  imageSrc: "https://apex-assets-exl.pages.dev/image/sir.jpeg",
   name: "Dr. Abhay Khalatkar",
   role: "Associate Professor, GHRCE"
 },
 
 {
-  imageSrc: "maam.jpeg",
+  imageSrc: "https://apex-assets-exl.pages.dev/image/maam.jpeg",
   name: "Prof. Archana Deshpande",
   role: "Asscoiate Professor, GHRCE"
 }
 ];
 const teamMembers = [
   {
-  imageSrc: "/soham.jpeg",
+  imageSrc: "https://apex-assets-exl.pages.dev/image/soham.jpeg",
   name: "Soham Kale",
   role: "Technorian President"
 },

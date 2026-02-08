@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: 'APEX-AI',
   description: 'Created with by Vinit Ghaturle and Team',
   generator: 'APEX-AI',
+  verification: {
+    google: 'f3B3cr1-8jQOQk0Ql4KOZv_TPIoT82A0f607aOdlrTA',
+  },
 }
 
 
@@ -20,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      
+
       <body className="font-sans antialiased">{children}</body>
     </html>
   )

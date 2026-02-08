@@ -15,42 +15,42 @@ import AboutUS from "@/components/AboutUS";
 
 const timelineData = [
   {
-    title: "DAY 1 – INAUGURATION",
-    date: "NOVEMBER 28, 2025 · 9:00 AM",
+    title: "REGISTRATION & INAUGURATION",
+    date: "FEBRUARY 18, 2026 · 08:00 AM",
     content: (
       <p>
-        Opening ceremony with keynote speeches from industry leaders,
-        introduction to the event agenda, and official kickoff.
+        Check-in and team assembly followed by an official opening ceremony 
+        at GHRCE, setting the stage for a day of intense AI innovation.
       </p>
     ),
   },
   {
-    title: "HACKATHON KICKOFF",
-    date: "NOVEMBER 28, 2025 · 10:30 AM",
+    title: "HACKATHON KICKOFF & MENTORING",
+    date: "FEBRUARY 18, 2026 · 09:00 AM",
     content: (
       <p>
-        Teams begin working on problem statements. Mentors will be available
-        throughout the day to guide participants.
+        The 10-hour sprint begins. Teams dive into problem statements with 
+        an initial mentoring round for idea validation and PPT submissions.
       </p>
     ),
   },
   {
-    title: "WORKSHOPS & TECH TALKS",
-    date: "NOVEMBER 28, 2025 · 2:00 PM",
+    title: "PROTOTYPE EVALUATION",
+    date: "FEBRUARY 18, 2026 · 02:00 PM",
     content: (
       <p>
-        Hands-on workshops and expert tech talks covering AI, Web3, Cloud,
-        and modern development practices.
+        Mid-way progress check where experts evaluate live prototypes and 
+        provide technical guidance to refine AI-driven solutions.
       </p>
     ),
   },
   {
-    title: "EVENING REVIEW & NETWORKING",
-    date: "NOVEMBER 28, 2025 · 6:00 PM",
+    title: "FINAL PITCH & WRAP-UP",
+    date: "FEBRUARY 18, 2026 · 05:30 PM",
     content: (
       <p>
-        Progress review sessions followed by networking with mentors,
-        sponsors, and fellow participants.
+        The final evaluation phase leading to the Top 10 team pitches, 
+        followed by the winners' announcement and event conclusion.
       </p>
     ),
   },
@@ -59,35 +59,41 @@ const facultyMembers = [
   {
     imageSrc: "https://apex-assets-exl.pages.dev/image/sir.jpeg",
     name: "Dr. Abhay Khalatkar",
-    role: "Associate Professor, GHRCE"
+    role: "Associate Professor, GHRCE",
+  linkedin: "https://www.linkedin.com/in/abhay-khalatkar-523a1748/"
   },
 
   {
     imageSrc: "https://apex-assets-exl.pages.dev/image/maam.jpeg",
     name: "Prof. Archana Deshpande",
-    role: "Asscoiate Professor, GHRCE"
+    role: "Asscoiate Professor, GHRCE",
+  linkedin: "https://www.linkedin.com/in/archana-deshpande-890ab6b5/"
   }
 ];
 const teamMembers = [
   {
     imageSrc: "https://apex-assets-exl.pages.dev/image/soham.jpeg",
     name: "Soham Kale",
-    role: "Technorian President"
+    role: "Technorian President",
+    linkedin: "https://www.linkedin.com/in/soham-kale-60134a2b0"
   },
   {
-    imageSrc: "https://apex-assets-exl.pages.dev/image/Removal-803.png",
+    imageSrc: "https://apex-assets-exl.pages.dev/image/karan.jpeg",
     name: "Karan Dubey",
-    role: "APEX - AI Lead"
+    role: "APEX - AI Lead",
+    linkedin: "https://www.linkedin.com/in/karan-dubey-193b25287/"
   },
   {
     imageSrc: "https://apex-assets-exl.pages.dev/image/Nandini.jpeg",
     name: "Nandini Jaiswal",
-    role: "Organizer - GDGoC GHRCE"
+    role: "Organizer - GDGoC GHRCE",
+    linkedin: "https://www.linkedin.com/in/nandini-jaiswalll/"
   },
   {
     imageSrc: "https://apex-assets-exl.pages.dev/image/prince.jpeg",
     name: "Prince Rayamwar",
-    role: "Chair, IEEE CS SB"
+    role: "Chair, IEEE CS SB",
+    linkedin: "https://www.linkedin.com/in/prince-rayamwar-47b49428a"
   }
 ];
 export default function Page() {

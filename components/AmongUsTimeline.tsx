@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 interface TimelineEntry {
   title: string;
   content: React.ReactNode;
+  date: string;
 }
 
 gsap.registerPlugin(ScrollTrigger);
@@ -85,6 +86,7 @@ export const HorizontalTimeline = ({ data }: { data: TimelineEntry[] }) => {
       <div ref={trackRef} className="flex h-full items-center">
         {data.map((item, index) => (
           <div key={index} className="horizontal-card min-w-full flex-shrink-0 px-24">
+            <h4 className="lg:text-3xl text-xl max-w-[23rem] lg:max-w-[50rem] font-bold text-red-500 mb-4 uppercase italic">{item.date}</h4>
             <h3 className="lg:text-5xl text-3xl max-w-[23rem] lg:max-w-[50rem] font-bold text-white mb-4 uppercase italic">{item.title}</h3>
             <div className="text-xl text-neutral-400 lg:max-w-2xl max-w-[20rem] whitespace-normal leading-relaxed">
               {item.content}

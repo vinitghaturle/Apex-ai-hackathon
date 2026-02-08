@@ -2,7 +2,7 @@
 
 const AboutUS = ({ 
   title = "APEX-AI : The AI Hackathon", 
-  subtitle = "10 Hours. Hundreds of developers. Infinite possibilities. Join the sprint to build solutions that actually matter.",
+  subtitle = "It is Nagpur’s ultimate 10-hour AI innovation challenge. Hosted at G. H. Raisoni College of Engineering and powered by GDGOC GHRCE, SRC, and IEEE CS, the event unites students and experts to prototype AI-driven solutions for the real world. One day, ten hours, infinite possibilities.",
   date = "February 18, 2026",
   image = "https://apex-assets-exl.pages.dev/image/about.svg"
 }) => {
@@ -58,14 +58,14 @@ const AboutUS = ({
           </div>
 
           {/* Text Content */}
-          <h1 className="text-4xl md:text-7xl font-black text-white mb-6 tracking-tighter leading-tight">
+          <h1 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tighter leading-tight">
             {title.split(':')[0]} <br/>
             <span className="text-red-500">
               {title.split(':')[1]}
             </span>
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl font-light leading-relaxed">
+          <p className="text-md md:text-xl text-gray-300 mb-10 max-w-2xl font-light leading-relaxed">
             <span className="text-green-500 font-mono mr-2">&gt;</span>
             {subtitle}
           </p>

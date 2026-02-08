@@ -7,6 +7,7 @@ interface teamData {
   imageSrc: string;
   name: string;
   role: string;
+  linkedin?: string; // Optional LinkedIn URL
 }
 
 interface TeamProfileProps {
@@ -14,7 +15,7 @@ interface TeamProfileProps {
 }
 
 export const Crew = ({ data }: TeamProfileProps) => {
-  const { imageSrc, name, role } = data;
+  const { imageSrc, name, role, linkedin } = data;
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -58,12 +59,30 @@ export const Crew = ({ data }: TeamProfileProps) => {
 
       {/* 4. Bottom Info */}
       <div className="absolute bottom-0 z-30 text-center w-full px-2">
-        <h3 className="text-md lg:text-4xl font-black text-white uppercase tracking-tighter italic truncate">
-          {name}
-        </h3>
-        <p className="text-[10px] lg:text-sm font-bold uppercase tracking-[0.2em] text-cyan-400">
-          {role}
-        </p>
+        {linkedin ? (
+          <a
+            href={linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block group"
+          >
+            <h3 className="text-md lg:text-4xl font-black text-white uppercase tracking-tighter italic truncate transition-all duration-300 group-hover:text-cyan-400 group-hover:scale-105">
+              {name}
+            </h3>
+            <p className="text-[10px] lg:text-sm font-bold uppercase tracking-[0.2em] text-cyan-400 transition-all duration-300 group-hover:text-white group-hover:underline">
+              {role}
+            </p>
+          </a>
+        ) : (
+          <>
+            <h3 className="text-md lg:text-4xl font-black text-white uppercase tracking-tighter italic truncate">
+              {name}
+            </h3>
+            <p className="text-[10px] lg:text-sm font-bold uppercase tracking-[0.2em] text-cyan-400">
+              {role}
+            </p>
+          </>
+        )}
       </div>
     </div>
   )

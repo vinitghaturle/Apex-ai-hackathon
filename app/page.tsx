@@ -94,6 +94,16 @@ export default function Page() {
   const [done, setDone] = useState(false);
   return (
     <>
+    <div style={{ display: 'none' }}>
+  <img src="https://apex-assets-exl.pages.dev/image/spaceship.svg" />
+  <img src="https://apex-assets-exl.pages.dev/image/LOGO.svg" />
+  <img src="https://apex-assets-exl.pages.dev/image/ico-player-red.png" />
+  <img src="https://apex-assets-exl.pages.dev/image/ico-player-green.png" />
+  <img src="https://apex-assets-exl.pages.dev/image/ico-player-purple.png" />
+  <img src="https://apex-assets-exl.pages.dev/image/ico-player-yellow.png" />
+  <img src="https://apex-assets-exl.pages.dev/image/ABOUT.png" />
+  <img src="https://apex-assets-exl.pages.dev/image/impokill1.webp" />
+</div>
     {!done && <IntroLoader onFinish={() => setDone(true)} />}
 
       {done && (

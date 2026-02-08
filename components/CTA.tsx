@@ -1,18 +1,22 @@
 'use client'
+import { useState } from "react"
+import RegisterModal from "./RegisterModal"
 
-const CTA = ({ 
-  title = "APEX-AI : The AI Hackathon", 
+
+const CTA = ({
+  title = "APEX-AI : The AI Hackathon",
   subtitle = "10 Hours. Hundreds of developers. Infinite possibilities. Join the sprint to build solutions that actually matter.",
   date = "February 18, 2026",
   image = "https://apex-assets-exl.pages.dev/image/bg-team.png"
 }) => {
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false)
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden font-sans">
       {/* Background Layer */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={image} 
-          alt="Hackathon Backdrop" 
+        <img
+          src={image}
+          alt="Hackathon Backdrop"
           className="w-full h-full object-cover opacity-50 scale-105" // Slight scale to prevent edge gaps
         />
         {/* Gradient Overlay for better text contrast */}
@@ -28,24 +32,26 @@ const CTA = ({
           </span>
           {date} • AT GHRCE Nagpur
         </div>
-        
+
         <h1 className="text-5xl md:text-8xl font-black text-white mb-8 tracking-tighter leading-none">
-          {title.split(':')[0]}: <br/>
+          {title.split(':')[0]}: <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-white">
             {title.split(':')[1]}
           </span>
         </h1>
-        
+
         <p className="text-lg md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
           {subtitle}
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-          <button className="group relative px-10 py-5 bg-white hover:bg-gray-600 text-black font-extrabold rounded-xl transition-all duration-300 transform hover:-translate-y-1 ">
+          <button
+            onClick={() => setIsRegisterModalOpen(true)}
+            className="group relative px-10 py-5 bg-white hover:bg-gray-600 text-black font-extrabold rounded-xl transition-all duration-300 transform hover:-translate-y-1 ">
             Register Now
           </button>
         </div>
-        
+
         <div className="mt-12 flex items-center justify-center gap-8 opacity-60">
           <div className="text-center">
             <p className="text-2xl font-bold text-white">$400+</p>
@@ -58,6 +64,10 @@ const CTA = ({
           </div>
         </div>
       </div>
+      <RegisterModal
+        isOpen={isRegisterModalOpen}
+        onClose={() => setIsRegisterModalOpen(false)}
+      />
     </section>
   );
 };

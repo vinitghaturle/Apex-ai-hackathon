@@ -10,10 +10,10 @@ const Footer = () => {
       { name: 'Website', href: 'https://gdg.community.dev/gdg-on-campus-g-h-raisoni-college-of-engineering-nagpur-india/' },
     ],
     SRC: [
-      { name: 'Instagram', href: 'https://www.instagram.com/gdg.ghrce?igsh=MTc5ZWg3cmg1ZHh3eA==' },
-      { name: 'Linkedin', href: 'https://www.linkedin.com/company/gdgoc-ghrce/' },
-      { name: 'Youtube', href: 'https://youtube.com/@gdgocghrce?si=7qxCf86wVYIDzGgW' },
-      { name: 'Website', href: 'https://gdg.community.dev/gdg-on-campus-g-h-raisoni-college-of-engineering-nagpur-india/' },
+      { name: 'Instagram', href: 'https://www.instagram.com/src.ghrce/' },
+      { name: 'X', href: 'https://x.com/ghrce_nagpur' },
+      { name: 'Youtube', href: 'https://www.youtube.com/@RaisoniWorld' },
+      { name: 'Website', href: 'https://ghrce.raisoni.net/' },
     ],
     IEEE_CS_GHRCE: [
       { name: 'Instagram', href: 'https://www.instagram.com/gdg.ghrce?igsh=MTc5ZWg3cmg1ZHh3eA==' },
@@ -22,8 +22,10 @@ const Footer = () => {
       { name: 'Website', href: 'https://gdg.community.dev/gdg-on-campus-g-h-raisoni-college-of-engineering-nagpur-india/' },
     ],
     SRC_Coordinator: [
-      { name: 'Mr. Karan G Dubey', href: '#' },
-      { name: '7249757517', href: '#' },
+      { name: 'Mr. Karan G Dubey - 7249757517', href: '#' },
+      { name: 'Soham Kale - 9373953413', href: '#' },
+      { name: 'Shubham Verma - 7038649298', href: '#' },
+      { name: 'Divya Krupan - 9370195269', href: '#' },
     ],
   };
 

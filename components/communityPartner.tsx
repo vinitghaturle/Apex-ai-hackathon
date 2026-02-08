@@ -12,7 +12,7 @@ const Circle = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "z-10 flex size-24 items-center justify-center rounded-full bg-black p-4 shadow-xl",
+        "z-10 flex size-12 lg:size-24 items-center justify-center rounded-full bg-black p-2 lg:p-4 shadow-xl",
         className
       )}
     >
@@ -31,14 +31,14 @@ export function CommunityPartner() {
   const partner3Ref = useRef<HTMLDivElement>(null);
 
   return (
-    
+
     <div
-      className="relative flex h-[700px] w-full items-center justify-center overflow-hidden rounded-xl  p-20"
+      className="relative flex h-[400px] lg:h-[700px] w-full items-center justify-center overflow-hidden rounded-xl p-4 lg:p-20"
       ref={containerRef}
     >
-      <div className="flex size-full max-w-4xl flex-row items-stretch justify-between gap-20">
+      <div className="flex size-full max-w-4xl flex-row items-stretch justify-center lg:justify-between gap-12 lg:gap-20">
         {/* Left Side: 2 Partners */}
-        <div className="flex flex-col justify-center gap-24">
+        <div className="flex flex-col justify-center gap-16 lg:gap-24">
           <Circle ref={partner1Ref}>
             <Icons.partner1 />
           </Circle>
@@ -49,10 +49,10 @@ export function CommunityPartner() {
 
         {/* Center: Main Event PNG */}
         <div className="flex flex-col justify-center">
-          <Circle ref={centerRef} className="size-48 border-blue-500 border-4 shadow-[0_0_50px_-12px_rgba(59,130,246,0.5)]">
-            <img 
-              src="https://apex-assets-exl.pages.dev/image/antragini.png" 
-              alt="Event Logo" 
+          <Circle ref={centerRef} className="size-16 lg:size-48 border-blue-500 border-2 lg:border-4 shadow-[0_0_50px_-12px_rgba(59,130,246,0.5)]">
+            <img
+              src="https://apex-assets-exl.pages.dev/image/antragini.png"
+              alt="Event Logo"
               className="size-full object-contain pointer-events-none"
             />
           </Circle>

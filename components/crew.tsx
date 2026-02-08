@@ -1,4 +1,5 @@
 'use client'
+import React, { useState, useEffect } from "react"
 import { OrbitingCircles } from "@/components/ui/orbiting-circles"
 
 // Define the interface for the data object
@@ -13,45 +14,54 @@ interface TeamProfileProps {
 }
 
 export const Crew = ({ data }: TeamProfileProps) => {
-  // Destructure the data for easier use inside the component
   const { imageSrc, name, role } = data;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const innerRadius = isMobile ? 55 : 120;
+  const outerRadius = isMobile ? 80 : 160;
 
   return (
-    <div className="relative flex h-[400px] w-full flex-col items-center justify-center overflow-hidden">
-      
-      {/* 2. Central Image: Wrapped in an absolute div to lock it to the middle */}
-      
-      <div className="absolute z-20 flex items-center justify-center">
-        <div className="h-[12rem] w-[12rem] overflow-hidden rounded-full border-4 border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.1)]">
-           <img 
-            src={imageSrc} 
-            alt={name} 
-            className="h-full w-full flex items-center justify-center object-cover"
+    <div className="relative flex lg:h-[400px] h-[300px] w-full flex-col items-center justify-center overflow-hidden lg:scale-100">
+
+      {/* 2. Central Image */}
+      <div className="absolute -z-10 flex items-center justify-center">
+        <div className="h-[8rem] w-[8rem] lg:h-[12rem] lg:w-[12rem] overflow-hidden rounded-full border-4 border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.1)]">
+          <img
+            src={imageSrc}
+            alt={name}
+            className="h-full w-full object-cover"
           />
         </div>
       </div>
 
-      {/* 3. The Orbits: They will now rotate around that absolute center */}
-      <OrbitingCircles radius={120} duration={25}>
-          <img src="https://apex-assets-exl.pages.dev/image/ico-purple-player.svg" className="h-8 w-8" />
-          <img src="https://apex-assets-exl.pages.dev/image/ico-green-player.svg" className="h-8 w-8" />
-          <img src="https://apex-assets-exl.pages.dev/image/ico-red-player.svg" className="h-8 w-8" />
-          <img src="https://apex-assets-exl.pages.dev/image/ico-yellow-player.svg" className="h-8 w-8" />
+      {/* 3. The Orbits */}
+      <OrbitingCircles radius={innerRadius} duration={25}>
+        <img src="https://apex-assets-exl.pages.dev/image/ico-purple-player.svg" className="h-6 w-6 lg:h-8 lg:w-8" />
+        <img src="https://apex-assets-exl.pages.dev/image/ico-green-player.svg" className="h-6 w-6 lg:h-8 lg:w-8" />
+        <img src="https://apex-assets-exl.pages.dev/image/ico-red-player.svg" className="h-6 w-6 lg:h-8 lg:w-8" />
+        <img src="https://apex-assets-exl.pages.dev/image/ico-yellow-player.svg" className="h-6 w-6 lg:h-8 lg:w-8" />
       </OrbitingCircles>
 
-      <OrbitingCircles radius={160} duration={25} reverse>
-          <img src="https://apex-assets-exl.pages.dev/image/ico-purple-player.svg" className="h-8 w-8" />
-          <img src="https://apex-assets-exl.pages.dev/image/ico-green-player.svg" className="h-8 w-8" />
-          <img src="https://apex-assets-exl.pages.dev/image/ico-red-player.svg" className="h-8 w-8" />
-          <img src="https://apex-assets-exl.pages.dev/image/ico-yellow-player.svg" className="h-8 w-8" />
+      <OrbitingCircles radius={outerRadius} duration={25} reverse>
+        <img src="https://apex-assets-exl.pages.dev/image/ico-purple-player.svg" className="h-6 w-6 lg:h-8 lg:w-8" />
+        <img src="https://apex-assets-exl.pages.dev/image/ico-green-player.svg" className="h-6 w-6 lg:h-8 lg:w-8" />
+        <img src="https://apex-assets-exl.pages.dev/image/ico-red-player.svg" className="h-6 w-6 lg:h-8 lg:w-8" />
+        <img src="https://apex-assets-exl.pages.dev/image/ico-yellow-player.svg" className="h-6 w-6 lg:h-8 lg:w-8" />
       </OrbitingCircles>
 
-      {/* 4. Bottom Info: Absolute position at the bottom so it doesn't move with the orbits */}
-      <div className="absolute bottom-1 z-30 text-center">
-        <h3 className="text-4xl font-black text-white uppercase tracking-tighter italic">
+      {/* 4. Bottom Info */}
+      <div className="absolute bottom-0 z-30 text-center w-full px-2">
+        <h3 className="text-md lg:text-4xl font-black text-white uppercase tracking-tighter italic truncate">
           {name}
         </h3>
-        <p className="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">
+        <p className="text-[10px] lg:text-sm font-bold uppercase tracking-[0.2em] text-cyan-400">
           {role}
         </p>
       </div>

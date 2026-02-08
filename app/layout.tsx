@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 
 import './globals.css'
@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   description: 'Created with by Vinit Ghaturle and Team',
   generator: 'APEX-AI',
 }
+
 
 export default function RootLayout({
   children,

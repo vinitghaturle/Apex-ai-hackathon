@@ -14,12 +14,12 @@ const AboutUS = ({
         <img 
           src={image} 
           alt="Hackathon Background" 
-          className="w-full h-full object-cover scale-105 opacity-65 blur-[0.9px] "
+          className="w-full h-full mt-[15rem] lg:mt-0 lg:object-cover lg:scale-105 opacity-65 blur-[0.9px] "
         />
         <img 
           src={image} 
           alt="Hackathon Background" 
-          className="w-full h-full object-cover scale-105 "
+          className="w-full h-full mt-[15rem] lg:mt-0 lg:object-cover lg:scale-105 "
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black opacity-94"></div>
         {/* Dark overlay to make the glass pop */}

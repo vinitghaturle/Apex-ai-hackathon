@@ -74,45 +74,45 @@ export const HorizontalTimeline = ({ data }: { data: TimelineEntry[] }) => {
     >
       {/* Fixed Header */}
       <div className="absolute top-0 left-0 w-full pt-12 z-10 pointer-events-none mt-[4rem]">
-         <h2 className="flex items-center w-full text-4xl font-joffrey font-bold text-white mb-12">
-             <span className="flex-grow h-1 bg-gray-100"></span>
-             <span className="mx-6 text-6xl">TIMELINE</span>
-             <span className="flex-grow h-1 bg-gray-100"></span>
-             </h2>
+        <h2 className="flex items-center w-full text-4xl font-joffrey font-bold text-white mb-12">
+          <span className="flex-grow h-1 bg-gray-100"></span>
+          <span className="mx-6 text-6xl">TIMELINE</span>
+          <span className="flex-grow h-1 bg-gray-100"></span>
+        </h2>
       </div>
 
       {/* Sliding Track */}
       <div ref={trackRef} className="flex h-full items-center">
         {data.map((item, index) => (
           <div key={index} className="horizontal-card min-w-full flex-shrink-0 px-24">
-             <h3 className="text-5xl font-bold text-white mb-4 uppercase italic">{item.title}</h3>
-             <div className="text-xl text-neutral-400 max-w-2xl whitespace-normal leading-relaxed">
-               {item.content}
-             </div>
+            <h3 className="lg:text-5xl text-3xl max-w-[23rem] lg:max-w-[50rem] font-bold text-white mb-4 uppercase italic">{item.title}</h3>
+            <div className="text-xl text-neutral-400 lg:max-w-2xl max-w-[20rem] whitespace-normal leading-relaxed">
+              {item.content}
+            </div>
           </div>
         ))}
       </div>
 
       {/* Progress Bar & Character Container */}
       <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-2/3 h-1 bg-white/10">
-        
+
         {/* The Character (WebP/GIF) */}
-        <div 
+        <div
           ref={characterRef}
           className="absolute bottom-full mb-2 -ml-6 w-12 h-12 flex items-center justify-center z-20"
           style={{ left: "0%" }} // Controlled by GSAP
         >
-          <img 
-            src="https://apex-assets-exl.pages.dev/image/charwalk.webp" 
-            alt="walking mascot" 
+          <img
+            src="https://apex-assets-exl.pages.dev/image/charwalk.webp"
+            alt="walking mascot"
             className="w-full h-full object-contain"
           />
         </div>
 
         {/* Progress Fill */}
-        <div 
-          ref={progressRef} 
-          className="h-full bg-red-500 w-full origin-left scale-x-0" 
+        <div
+          ref={progressRef}
+          className="h-full bg-red-500 w-full origin-left scale-x-0"
         />
       </div>
     </section>

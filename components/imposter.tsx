@@ -18,7 +18,7 @@ export const Imposter = ({ data }: FacultyProfileProps) => {
   const { imageSrc, name, role } = data;
 
   return (
-    <div className="relative flex h-[600px] w-full flex-col items-center justify-center overflow-hidden">
+    <div className="relative flex lg:h-[600px] h-[500px] w-full flex-col items-center justify-center overflow-hidden">
       
       {/* 2. Central Image: Wrapped in an absolute div to lock it to the middle */}
       
@@ -48,7 +48,7 @@ export const Imposter = ({ data }: FacultyProfileProps) => {
       </OrbitingCircles>
 
       {/* 4. Bottom Info: Absolute position at the bottom so it doesn't move with the orbits */}
-      <div className="absolute bottom-12 z-30 text-center">
+      <div className="absolute bottom-6 z-30 text-center">
         <h3 className="text-3xl font-black text-white uppercase tracking-tighter italic text-nowrap">
           {name}
         </h3>

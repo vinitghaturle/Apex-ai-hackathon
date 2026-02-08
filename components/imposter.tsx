@@ -48,8 +48,8 @@ export const Imposter = ({ data }: FacultyProfileProps) => {
       </OrbitingCircles>
 
       {/* 4. Bottom Info: Absolute position at the bottom so it doesn't move with the orbits */}
-      <div className="absolute bottom-6 z-30 text-center">
-        <h3 className="text-3xl font-black text-white uppercase tracking-tighter italic text-nowrap">
+      <div className="absolute bottom-2 z-30 text-center">
+        <h3 className="lg:text-3xl text-[1.5rem] font-black text-white uppercase tracking-tighter italic text-wrap">
           {name}
         </h3>
         <p className="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">

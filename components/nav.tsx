@@ -41,16 +41,15 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className="fixed top-0 w-full z-50 glass-panel bg-white/4 backdrop-blur-sm border-b border-white/10">
-                <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
-                    <img
-                        alt="Futuristic spaceship with crewmates"
-                        className="relative scale-150"
-                        src="https://apex-assets-exl.pages.dev/image/LOGO.svg"
-                        width={15}
-                        height={5}
-                        style={{ width: '15rem', height: '5rem' }}
-                    />
+            <nav className="fixed top-0 w-full z-50 glass-panel bg-white/5 backdrop-blur-sm border-b border-white/10">
+    {/* Corrected: justify-between ensures Logo is Left and Hamburger is Right */}
+    <div className="max-w-7xl mx-auto px-4 lg:px-6 h-16 lg:h-[5.5rem] flex items-center justify-between">
+        
+        <img
+            alt="Logo"
+            className="relative lg:scale-150 scale-100 object-left w-40 md:w-60 h-auto object-contain" 
+            src="https://apex-assets-exl.pages.dev/image/LOGO.svg"
+        />
 
                     {/* Desktop Navigation */}
                     <div className="font-joffrey hidden md:flex items-center space-x-8 text-[1.5rem] tracking-wider uppercase text-white">

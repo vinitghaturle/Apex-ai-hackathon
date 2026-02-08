@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://apexai.gdgocghrce.in/sitemap.xml

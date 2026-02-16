@@ -19,11 +19,20 @@ export const metadata: Metadata = {
     'APEX-AI', 'AI Hackathon', 'Hackathon Nagpur', 'GHRCE Hackathon',
     'AI Competition', 'GDGOC GHRCE', 'IEEE CS', 'Student Hackathon',
     'Machine Learning', 'Artificial Intelligence', 'Nagpur', 'Maharashtra',
-    'Tech Event 2026', 'Coding Competition', 'Innovation Challenge'
+    'Tech Event 2026', 'Coding Competition', 'Innovation Challenge',
+    'AI Innovation', 'Tech Competition India', 'College Hackathon',
+    'February 2026 Events', 'G.H. Raisoni College'
   ],
+  applicationName: 'APEX-AI Hackathon',
   authors: [{ name: 'APEX-AI Organizing Committee' }],
   creator: 'Vinit Ghaturle and Team',
   publisher: 'GDGOC GHRCE',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  referrer: 'origin-when-cross-origin',
 
   // Verification
   verification: {
@@ -75,8 +84,8 @@ export const metadata: Metadata = {
 
   // Icons
   icons: {
-    icon: 'https://apex-assets-exl.pages.dev/image/LOGO.svg',
-    apple: 'https://apex-assets-exl.pages.dev/image/LOGO.svg',
+    icon: 'https://apex-assets-exl.pages.dev/image/shh.webp',
+    apple: 'https://apex-assets-exl.pages.dev/image/shh.webp',
   },
 
   // Category

@@ -13,6 +13,7 @@ import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import AboutUS from "@/components/AboutUS";
 import ProblemGrid, { ProblemStatement } from "@/components/ProblemGrid";
+import Specialps, { SpecialStatement } from "@/components/Specialps";
 
 const timelineData = [
   {
@@ -99,8 +100,8 @@ const teamMembers = [
 ];
 const sampleProblems: ProblemStatement[] = [
   {
-    id: "1",
-    code: "PS-01",
+    id: "2",
+    code: "PS-02",
     title: "AI-Based Maternal Health Risk Assessment Chatbot",
     organization: "GHRCE",
     category: "Software",
@@ -117,8 +118,8 @@ const sampleProblems: ProblemStatement[] = [
       "Early detection of maternal risks, reduced complications, and improved maternal healthcare delivery.",
   },
   {
-    id: "2",
-    code: "PS-02",
+    id: "3",
+    code: "PS-03",
     title: "AI-Based Skin Cancer Detection Using Smartphone Images",
     organization: "GHRCE",
     category: "Software",
@@ -134,8 +135,8 @@ const sampleProblems: ProblemStatement[] = [
       "Early screening and increased awareness, especially in remote areas.",
   },
   {
-    id: "3",
-    code: "PS-03",
+    id: "4",
+    code: "PS-04",
     title: "Real-Time Vaccine Cold Chain Monitoring System",
     organization:
       "GHRCE",
@@ -152,8 +153,8 @@ const sampleProblems: ProblemStatement[] = [
       "Improved vaccine safety and minimized wastage.",
   },
   {
-    id: "4",
-    code: "PS-04",
+    id: "5",
+    code: "PS-05",
     title: "AI-Based Early Disease Outbreak Prediction System",
     organization:
       "GHRCE",
@@ -170,8 +171,8 @@ const sampleProblems: ProblemStatement[] = [
       "Faster outbreak detection and improved public health response.",
   },
   {
-    id: "5",
-    code: "PS-05",
+    id: "6",
+    code: "PS-06",
     title: "Universal Health Record Aggregation Platform",
     organization: "GHRCE",
     category: "Software",
@@ -187,8 +188,8 @@ const sampleProblems: ProblemStatement[] = [
       "Seamless health record access and improved treatment efficiency.",
   },
   {
-    id: "6",
-    code: "PS-06",
+    id: "7",
+    code: "PS-07",
     title: "AI-Based Telemedicine Queue Optimization System",
     organization: "GHRCE",
     category: "Software",
@@ -203,8 +204,8 @@ const sampleProblems: ProblemStatement[] = [
       "Reduced waiting time and improved healthcare accessibility.",
   },
   {
-    id: "7",
-    code: "PS-07",
+    id: "8",
+    code: "PS-08",
     title: "Tuberculosis Screening via Cough Sound Analysis",
     organization:
       "GHRCE",
@@ -220,8 +221,8 @@ const sampleProblems: ProblemStatement[] = [
       "Early TB detection and support for TB elimination efforts.",
   },
   {
-    id: "8",
-    code: "PS-08",
+    id: "9",
+    code: "PS-09",
     title: "AI-Based Predictive Maintenance System for Industrial Machinery",
     organization:
       "GHRCE",
@@ -237,8 +238,8 @@ const sampleProblems: ProblemStatement[] = [
       "Reduced downtime and optimized industrial productivity.",
   },
   {
-    id: "9",
-    code: "PS-09",
+    id: "10",
+    code: "PS-10",
     title: "GPS-Denied Autonomous Inspection Drone using Jetson Nano",
     organization: "GHRCE",
     category: "Hardware + Software",
@@ -253,8 +254,8 @@ const sampleProblems: ProblemStatement[] = [
       "Improved worker safety and efficient infrastructure inspection.",
   },
   {
-    id: "10",
-    code: "PS-10",
+    id: "11",
+    code: "PS-11",
     title: "Skill Gap Analysis & Personalized Career Roadmap Platform",
     organization:
       "GHRCE",
@@ -268,7 +269,46 @@ const sampleProblems: ProblemStatement[] = [
     ],
     expectedOutcome:
       "Improved employability and alignment between education and industry demands.",
-  },
+  },{
+  id: "12",
+  code: "PS-12",
+  title: "Open Innovation – AI Solutions for Real-World Impact",
+  organization: "GHRCE",
+  category: "Open Innovation",
+  description:
+    "Participants are invited to design and develop an AI-powered solution that addresses a real-world problem across any domain such as healthcare, agriculture, education, environment, finance, governance, accessibility, or industry. The solution must demonstrate practical applicability, scalability, and measurable impact.",
+  expectedSolution: [
+    "Identify and clearly define a real-world problem backed by research or data.",
+    "Develop an AI/ML-based prototype (e.g., computer vision, NLP, predictive analytics, recommendation systems, generative AI, etc.).",
+    "Demonstrate technical feasibility and real-world usability.",
+    "Provide a scalability and deployment roadmap.",
+    "Include impact metrics and validation strategy.",
+  ],
+  expectedOutcome:
+    "Innovative, scalable AI solutions with tangible real-world impact and potential for real deployment or startup incubation.",
+},
+];
+const specialProblems: SpecialStatement[] = [
+  {
+  id: "1",
+  code: "PS-01",
+  title: "AI-Based Desert Scene Semantic Segmentation Challenge",
+  organization: "DEVNOVATES",
+  category: "AI / Computer Vision",
+  description:
+    "Participants are required to develop a semantic segmentation model for desert environment images using synthetic data. Teams must train, validate, and optimize an AI model capable of accurately segmenting various terrain categories under realistic constraints. The challenge emphasizes model accuracy, optimization, and structured reporting.",
+  expectedSolution: [
+    "Train and fine-tune a semantic segmentation model using the provided synthetic dataset.",
+    "Apply data augmentation and filtering strategies to improve generalization.",
+    "Evaluate performance on unseen test images.",
+    "Optimize model accuracy and reduce inference time.",
+    "Document the complete workflow including training process and evaluation metrics.",
+    "Prepare a structured technical report and presentation with visualizations such as loss graphs and performance curves."
+  ],
+  expectedOutcome:
+    "A fully trained semantic segmentation model with strong IoU performance, optimized inference efficiency, and a comprehensive evaluation report including failure case analysis and performance visualization.",
+}
+
 ];
 
 export default function Page() {
@@ -322,6 +362,7 @@ export default function Page() {
             <AboutUS />
           </section>
           <section id="tracks">
+            <Specialps problems={specialProblems}/>
             <ProblemGrid problems={sampleProblems} />
           </section>
           {/* <Time data={timelineData} /> */}

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export type ProblemStatement = {
+export type SpecialStatement = {
     id: string;
     code: string;
     title: string;
@@ -15,7 +15,7 @@ export type ProblemStatement = {
 };
 
 interface ProblemGridProps {
-    problems: ProblemStatement[];
+    problems: SpecialStatement[];
 }
 
 // Among Us Character SVG Component
@@ -56,8 +56,8 @@ const AmongUsCharacter = ({ color = "#f42525" }: { color?: string }) => (
 // Color palette for characters
 const crewColors = ["#f42525", "#38fedc", "#50ef39", "#f5f557"];
 
-export default function ProblemGrid({ problems }: ProblemGridProps) {
-    const [selected, setSelected] = useState<ProblemStatement | null>(null);
+export default function Specialps({ problems }: ProblemGridProps) {
+    const [selected, setSelected] = useState<SpecialStatement | null>(null);
 
     // ESC close
     useEffect(() => {
@@ -94,19 +94,22 @@ export default function ProblemGrid({ problems }: ProblemGridProps) {
             <div className="relative z-10 max-w-6xl mx-auto px-6 py-20">
                 {/* Animated Title Header */}
                 <div className="text-center mb-12 ">
-                    {/* <div className="inline-block px-6 py-2 bg-[#f42525]/20 border-2 border-[#f42525] rounded-full mb-4 shadow-[0_0_15px_rgba(244,37,37,0.5)]">
+                    <div className="inline-block px-6 py-2 bg-[#f42525]/20 border-2 border-[#f42525] rounded-full mb-4 shadow-[0_0_15px_rgba(244,37,37,0.5)]">
                         <span className="text-[#f42525] font-bold tracking-widest uppercase flex items-center justify-center gap-2">
                             <span className="w-3 h-3 bg-[#f42525] rounded-full animate-ping"></span>
                             MISSION DETAILS ARE HERE
                         </span>
-                    </div> */}
+                    </div>
                     <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight drop-shadow-xl">
-                        COMMON <span className="text-transparent bg-clip-text bg-white">TASKS</span>
+                        SPECIAL <span className="text-transparent bg-clip-text bg-white">TASK</span>
                     </h1>
+                    <h2 className="text-4xl md:text-4xl mt-8 font-bold text-blue-500 tracking-tight drop-shadow-xl">
+                        PRIZE POOL FOR THIS PS IS 400$
+                    </h2>
                 </div>
 
                 {/* Enhanced 2x2 GRID with Among Us Characters */}
-                <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
+                <div className="flex flex-wrap justify-center mt-40 gap-6 sm:gap-8">
                     {problems.map((problem) => (
                         <motion.div
                             key={problem.id}
@@ -204,7 +207,7 @@ export default function ProblemGrid({ problems }: ProblemGridProps) {
 }
 
 interface ModalProps {
-    problem: ProblemStatement;
+    problem: SpecialStatement;
     onClose: () => void;
 }
 
@@ -223,7 +226,7 @@ function TaskModal({ problem, onClose }: ModalProps) {
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
                 transition={{ duration: 0.25 }}
-                className="relative w-[90vw] pt-20 lg:top-0 mx-auto my-2 sm:my-8"
+                className="relative w-[90vw] pt-60 lg:pt-20 mx-auto my-2 sm:my-8"
                 onClick={(e) => e.stopPropagation()}
             >
                 {/* Floating Characters - Removed */}

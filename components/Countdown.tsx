@@ -19,30 +19,45 @@ function usePrevious<T>(value: T) {
 }
 
 export default function CountdownTimer() {
-  const calculateTimeLeft = (): TimeLeft => {
-    const now = new Date();
-    const diff = TARGET_DATE.getTime() - now.getTime();
-
-    if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-
-    const totalSeconds = Math.floor(diff / 1000);
-    return {
-      days: Math.floor(totalSeconds / 86400),
-      hours: Math.floor((totalSeconds % 86400) / 3600),
-      minutes: Math.floor((totalSeconds % 3600) / 60),
-      seconds: totalSeconds % 60,
-    };
-  };
-
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const timer = setInterval(
-      () => setTimeLeft(calculateTimeLeft()),
-      1000
-    );
+    setMounted(true);
+    const calculateTimeLeft = (): TimeLeft => {
+      const now = new Date();
+      const diff = TARGET_DATE.getTime() - now.getTime();
+
+      if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+
+      const totalSeconds = Math.floor(diff / 1000);
+      return {
+        days: Math.floor(totalSeconds / 86400),
+        hours: Math.floor((totalSeconds % 86400) / 3600),
+        minutes: Math.floor((totalSeconds % 3600) / 60),
+        seconds: totalSeconds % 60,
+      };
+    };
+
+    setTimeLeft(calculateTimeLeft());
+
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
     return () => clearInterval(timer);
   }, []);
+
+  if (!mounted) {
+    return (
+      <div className="mt-14 flex flex-wrap justify-center gap-8">
+        <TimeCard value={0} label="DAYS" rotate={-10} />
+        <TimeCard value={0} label="HOURS" rotate={-4} />
+        <TimeCard value={0} label="MINUTES" rotate={6} />
+        <TimeCard value={0} label="SECONDS" rotate={12} />
+      </div>
+    );
+  }
 
   return (
     <div className="mt-14 flex flex-wrap justify-center gap-8">

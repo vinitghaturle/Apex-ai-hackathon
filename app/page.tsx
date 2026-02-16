@@ -119,7 +119,7 @@ export default function Page() {
       <div
         className="relative w-full bg-black overflow-x-hidden"
         aria-hidden={!done}
-        {...(!done && { inert: '' as any })}
+        {...(!done ? { inert: true } : {})}
       >
         {/* Fixed Sparkles Background - Full viewport coverage */}
         <div className="fixed inset-0 w-screen h-screen pointer-events-none z-5">

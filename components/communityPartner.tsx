@@ -51,7 +51,7 @@ export function CommunityPartner() {
         <div className="flex flex-col justify-center">
           <Circle ref={centerRef} className="size-16 lg:size-48 border-blue-500 border-2 lg:border-4 shadow-[0_0_50px_-12px_rgba(59,130,246,0.5)]">
             <img
-              src="https://apex-assets-exl.pages.dev/image/antragini.png"
+              src="https://apex-assets-exl.pages.dev/image/ant.png"
               alt="Event Logo"
               className="size-full object-contain pointer-events-none"
             />

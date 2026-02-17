@@ -11,38 +11,40 @@ export default function useFCM() {
     const { user } = useAuth();
     const [fcmToken, setFcmToken] = useState<string | null>(null);
     const [permissionStatus, setPermissionStatus] = useState<NotificationPermission>("default");
+    const [isEnabled, setIsEnabled] = useState(true);
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
             setPermissionStatus(Notification.permission);
+            const savedPref = localStorage.getItem('notifications_enabled');
+            setIsEnabled(savedPref !== 'false');
         }
     }, []);
 
     const saveTokenToSupabase = async (token: string) => {
-        if (!user) return;
+        if (!user || !isEnabled) return;
+        await supabase.from('fcm_tokens').upsert({ token, user_id: user.id }, { onConflict: 'token' });
+    };
 
-        const { error } = await supabase
-            .from('fcm_tokens')
-            .upsert({
-                token,
-                user_id: user.id
-            }, { onConflict: 'token' });
-
-        if (error) {
-            console.error("Error saving FCM token:", error);
+    const toggleNotifications = async () => {
+        if (isEnabled) {
+            setIsEnabled(false);
+            localStorage.setItem('notifications_enabled', 'false');
+            toast.info("Mission Alerts Suspended");
+            if (fcmToken) {
+                await supabase.from('fcm_tokens').delete().eq('token', fcmToken);
+            }
         } else {
-            console.log("FCM token saved to Supabase");
+            setIsEnabled(true);
+            localStorage.setItem('notifications_enabled', 'true');
+            await requestPermission();
         }
     };
 
     const requestPermission = async () => {
         try {
-            // Check if already denied
             if (Notification.permission === 'denied') {
-                toast.error("Notifications Blocked", {
-                    description: "Please enable notifications in your browser settings to receive mission alerts.",
-                    duration: 5000,
-                });
+                toast.error("Notifications Blocked", { description: "Adjust browser settings to enable." });
                 setPermissionStatus('denied');
                 return;
             }
@@ -50,63 +52,41 @@ export default function useFCM() {
             const permission = await Notification.requestPermission();
             setPermissionStatus(permission);
 
-            if (permission === "granted") {
-                toast.success("Mission Alerts Enabled", {
-                    description: "You will now receive notifications for checkpoint updates."
-                });
-
+            if (permission === "granted" && isEnabled) {
                 const msg = await messaging();
                 if (!msg) return;
-
-                const token = await getToken(msg, {
-                    vapidKey: process.env.NEXT_PUBLIC_VAPID_KEY,
-                });
-
+                const token = await getToken(msg, { vapidKey: process.env.NEXT_PUBLIC_VAPID_KEY });
                 if (token) {
-                    console.log("FCM Token:", token);
                     setFcmToken(token);
                     await saveTokenToSupabase(token);
                 }
-            } else if (permission === 'denied') {
-                toast.error("Notifications Denied", {
-                    description: "You won't receive mission alerts. You can change this in your browser settings."
-                });
             }
         } catch (error) {
-            console.error("An error occurred while retrieving token.", error);
-            toast.error("Failed to enable notifications");
+            console.error("FCM Error:", error);
         }
     };
 
-    // Listen for foreground messages
     useEffect(() => {
         const setupListener = async () => {
             const msg = await messaging();
-            if (!msg) return;
+            if (!msg || !isEnabled) return;
 
-            const unsubscribe = onMessage(msg, (payload) => {
-                console.log("Foreground message received:", payload);
-                toast(payload.notification?.title || "New Message", {
+            return onMessage(msg, (payload: any) => {
+                toast(payload.notification?.title || "Mission Alert", {
                     description: payload.notification?.body,
-                    action: {
-                        label: "View",
-                        onClick: () => window.location.href = '/dashboard' // Simple redirect
-                    }
+                    action: { label: "View", onClick: () => window.location.href = '/dashboard' }
                 });
             });
-
-            return () => unsubscribe();
         };
+        const cleanup = setupListener();
+        return () => { cleanup.then(unsub => unsub?.()) };
+    }, [isEnabled]);
 
-        setupListener();
-    }, []);
-
-    // Auto-save if permission already granted and user logs in
     useEffect(() => {
-        if (permissionStatus === 'granted' && user && !fcmToken) {
+        if (permissionStatus === 'granted' && user && !fcmToken && isEnabled) {
             requestPermission();
         }
-    }, [user, permissionStatus]); // Dependencies
+    }, [user, permissionStatus, isEnabled]);
 
-    return { fcmToken, requestPermission, permissionStatus };
+    return { fcmToken, requestPermission, permissionStatus, isEnabled, toggleNotifications };
 }

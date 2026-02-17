@@ -22,7 +22,7 @@ export default function DashboardPage() {
     const [loadingCheckpoints, setLoadingCheckpoints] = useState(true);
 
     // Notification Hook
-    const { requestPermission, permissionStatus } = useFCM();
+    const { requestPermission, permissionStatus, isEnabled, toggleNotifications } = useFCM();
 
     const handleSignOut = async () => {
         await signOut();
@@ -202,16 +202,20 @@ export default function DashboardPage() {
                         <div className="flex items-center gap-4">
                             {/* Notification Toggle */}
                             <button
-                                onClick={requestPermission}
-                                title={permissionStatus === 'granted' ? 'Notifications Active' : 'Enable Notifications'}
+                                onClick={toggleNotifications}
+                                title={permissionStatus === 'granted'
+                                    ? (isEnabled ? 'Notifications Active' : 'Notifications Suspended (Click to Resume)')
+                                    : 'Enable Notifications'}
                                 className={`
                                     p-2 rounded-lg border transition-all
                                     ${permissionStatus === 'granted'
-                                        ? 'bg-[#38FEDC]/10 border-[#38FEDC]/30 text-[#38FEDC]'
+                                        ? (isEnabled
+                                            ? 'bg-[#38FEDC]/10 border-[#38FEDC]/30 text-[#38FEDC]'
+                                            : 'bg-orange-500/10 border-orange-500/30 text-orange-500')
                                         : 'bg-white/5 border-white/10 text-white/50 hover:text-white'}
                                 `}
                             >
-                                {permissionStatus === 'granted' ? <Bell size={18} /> : <BellOff size={18} />}
+                                {permissionStatus === 'granted' && isEnabled ? <Bell size={18} /> : <BellOff size={18} />}
                             </button>
 
                             <button
@@ -255,10 +259,15 @@ export default function DashboardPage() {
                             </motion.div>
                         )}
 
-                        <div className="relative z-10 w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                        <div className="relative z-10 w-full max-w-7xl flex flex-col lg:grid lg:grid-cols-12 gap-8 items-start">
 
-                            {/* Left Tasks Sidebar - Replaced with Checkpoints */}
-                            <div className="hidden lg:flex lg:col-span-3 flex-col gap-4 h-full">
+                            {/* Center Countdown Terminal - Appears first on mobile */}
+                            <div className="order-1 lg:order-2 lg:col-span-6 w-full flex flex-col items-center justify-center">
+                                <DashboardCountdown />
+                            </div>
+
+                            {/* Left Tasks Sidebar - Appears second on mobile */}
+                            <div className="order-2 lg:order-1 lg:col-span-3 flex flex-col gap-4 w-full h-full">
                                 <Checkpoints
                                     checkpoints={checkpoints}
                                     isAdmin={isAdmin}
@@ -269,13 +278,8 @@ export default function DashboardPage() {
                                 />
                             </div>
 
-                            {/* Center Countdown Terminal */}
-                            <div className="lg:col-span-6 flex flex-col items-center justify-center">
-                                <DashboardCountdown />
-                            </div>
-
-                            {/* Right Security Status - Live Feed Placeholder */}
-                            <div className="lg:col-span-3 flex flex-col gap-4">
+                            {/* Right Security Status - Appears last on mobile */}
+                            <div className="order-3 lg:order-3 lg:col-span-3 w-full flex flex-col gap-4">
                                 <div className="bg-[#1a0b0b]/90 border border-[#f42525]/20 p-5 rounded-xl shadow-2xl backdrop-blur-sm overflow-hidden relative">
                                     <h3 className="text-white text-xs font-black tracking-tighter uppercase mb-4 flex items-center gap-2">
                                         <span className="material-symbols-outlined text-[#f42525] text-sm">visibility</span> Live Feed

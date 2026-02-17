@@ -40,6 +40,11 @@ export async function POST(request: Request) {
                 title,
                 body,
             },
+            webpush: {
+                fcmOptions: {
+                    link: 'https://apexai.gdgocghrce.in/dashboard'
+                }
+            },
             tokens, // Array of device tokens
         };
 

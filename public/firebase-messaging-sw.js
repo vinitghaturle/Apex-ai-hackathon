@@ -29,19 +29,29 @@ try {
     const messaging = firebase.messaging();
 
     messaging.onBackgroundMessage((payload) => {
-        console.log(
-            '[firebase-messaging-sw.js] Received background message ',
-            payload
-        );
-        // Customize notification here
-        const notificationTitle = payload.notification.title;
-        const notificationOptions = {
-            body: payload.notification.body,
-            icon: '/icons/icon-192x192.png' // Ensure you have an icon
-        };
-
-        self.registration.showNotification(notificationTitle, notificationOptions);
+        console.log('[firebase-messaging-sw.js] Background message ', payload);
     });
+
+    // Handle notification click to open dashboard
+    self.onnotificationclick = (event) => {
+        event.notification.close();
+        const urlToOpen = 'https://apexai.gdgocghrce.in/dashboard';
+
+        event.waitUntil(
+            clients.matchAll({ type: 'window', includeUncontrolled: true })
+                .then((windowClients) => {
+                    for (let i = 0; i < windowClients.length; i++) {
+                        const client = windowClients[i];
+                        if (client.url === urlToOpen && 'focus' in client) {
+                            return client.focus();
+                        }
+                    }
+                    if (clients.openWindow) {
+                        return clients.openWindow(urlToOpen);
+                    }
+                })
+        );
+    };
 } catch (error) {
     console.log('Firebase setup failed in SW (likely missing config):', error);
 }

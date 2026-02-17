@@ -115,7 +115,7 @@ export default function AuthModal({ isOpen, onClose, initialView = 'login' }: Au
                             label="Crewmate Name"
                             placeholder="RedSus"
                             value={username}
-                            onChange={(e) => setUsername(e.target.value)}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUsername(e.target.value)}
                             required
                         />
                     )}
@@ -125,7 +125,7 @@ export default function AuthModal({ isOpen, onClose, initialView = 'login' }: Au
                         label="Email Address"
                         placeholder="crewmate@skeld.ship"
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                         required
                     />
 
@@ -134,7 +134,7 @@ export default function AuthModal({ isOpen, onClose, initialView = 'login' }: Au
                         label="Access Code"
                         placeholder="••••••••"
                         value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
                         required
                     />
 
@@ -144,7 +144,7 @@ export default function AuthModal({ isOpen, onClose, initialView = 'login' }: Au
                             label="Confirm Access Code"
                             placeholder="••••••••"
                             value={confirmPassword}
-                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setConfirmPassword(e.target.value)}
                             required
                         />
                     )}

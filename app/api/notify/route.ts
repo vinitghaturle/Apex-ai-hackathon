@@ -49,7 +49,7 @@ export async function POST(request: Request) {
 
         if (response.failureCount > 0) {
             const failedTokens: string[] = [];
-            response.responses.forEach((resp, idx) => {
+            response.responses.forEach((resp: any, idx: number) => {
                 if (!resp.success) {
                     failedTokens.push(tokens[idx]);
                 }

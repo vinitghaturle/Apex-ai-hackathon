@@ -7,7 +7,7 @@ import { AnimatedBeam } from "@/components/ui/animated-beam";
 const Circle = forwardRef<
   HTMLDivElement,
   { className?: string; children?: React.ReactNode }
->(({ className, children }, ref) => {
+>(({ className, children }, ref: React.ForwardedRef<HTMLDivElement>) => {
   return (
     <div
       ref={ref}

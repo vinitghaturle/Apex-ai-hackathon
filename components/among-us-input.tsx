@@ -8,7 +8,7 @@ interface AmongUsInputProps extends React.InputHTMLAttributes<HTMLInputElement> 
 }
 
 export const AmongUsInput = React.forwardRef<HTMLInputElement, AmongUsInputProps>(
-    ({ label, error, className = '', ...props }, ref) => {
+    ({ label, error, className = '', ...props }, ref: React.ForwardedRef<HTMLInputElement>) => {
         return (
             <div className="w-full">
                 {label && (

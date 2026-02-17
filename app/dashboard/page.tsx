@@ -59,8 +59,8 @@ export default function DashboardPage() {
     const handleCompleteCheckpoint = async (id: string) => {
         // Optimistic update
         const originalCheckpoints = [...checkpoints];
-        setCheckpoints(prev => {
-            const currentIndex = prev.findIndex(c => c.id === id);
+        setCheckpoints((prev: Checkpoint[]) => {
+            const currentIndex = prev.findIndex((c: Checkpoint) => c.id === id);
             if (currentIndex === -1) return prev;
             const nextCheckpoints = [...prev];
             nextCheckpoints[currentIndex] = { ...nextCheckpoints[currentIndex], status: 'completed' };
@@ -72,7 +72,7 @@ export default function DashboardPage() {
 
         // Database update
         try {
-            const currentIndex = checkpoints.findIndex(c => c.id === id);
+            const currentIndex = checkpoints.findIndex((c: Checkpoint) => c.id === id);
             if (currentIndex === -1) return;
 
             // Get checkpoint details for notification
@@ -106,8 +106,8 @@ export default function DashboardPage() {
     const handleUndoCheckpoint = async (id: string) => {
         // Optimistic update
         const originalCheckpoints = [...checkpoints];
-        setCheckpoints(prev => {
-            const index = prev.findIndex(c => c.id === id);
+        setCheckpoints((prev: Checkpoint[]) => {
+            const index = prev.findIndex((c: Checkpoint) => c.id === id);
             if (index === -1) return prev;
             const nextCheckpoints = [...prev];
             nextCheckpoints[index] = { ...nextCheckpoints[index], status: 'current' };
@@ -119,7 +119,7 @@ export default function DashboardPage() {
 
         // Database update
         try {
-            const index = checkpoints.findIndex(c => c.id === id);
+            const index = checkpoints.findIndex((c: Checkpoint) => c.id === id);
             if (index === -1) return;
 
             // Revert selected to current
@@ -145,7 +145,7 @@ export default function DashboardPage() {
 
         try {
             const maxOrder = checkpoints.length > 0
-                ? Math.max(...checkpoints.map(c => c.order_index || 0))
+                ? Math.max(...checkpoints.map((c: Checkpoint) => c.order_index || 0))
                 : 0;
 
             const newCheckpoint = {

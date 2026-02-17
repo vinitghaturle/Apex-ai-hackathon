@@ -227,7 +227,7 @@ function TaskModal({ problem, onClose }: ModalProps) {
                 exit={{ scale: 0.8, opacity: 0 }}
                 transition={{ duration: 0.25 }}
                 className="relative w-[90vw] pt-60 lg:pt-20 mx-auto my-2 sm:my-8"
-                onClick={(e) => e.stopPropagation()}
+                onClick={(e: React.MouseEvent) => e.stopPropagation()}
             >
                 {/* Floating Characters - Removed */}
 

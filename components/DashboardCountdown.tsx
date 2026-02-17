@@ -24,8 +24,8 @@ export default function DashboardCountdown() {
                 return;
             }
 
-            const activeRow = data?.find(r => r.key === 'countdown_active');
-            const targetRow = data?.find(r => r.key === 'countdown_target');
+            const activeRow = data?.find((r: { key: string; value: string }) => r.key === 'countdown_active');
+            const targetRow = data?.find((r: { key: string; value: string }) => r.key === 'countdown_target');
 
             const active = activeRow?.value === 'true';
             const target = targetRow?.value ? parseInt(targetRow.value) : null;

@@ -1,12 +1,12 @@
 'use client'
 
 import CountdownTimer from "./Countdown"
-import { useState } from "react"
-import RegisterModal from "./RegisterModal"
 
-export function Hero() {
+interface HeroProps {
+  onOpenAuthModal: (view: 'login' | 'register') => void;
+}
 
-    const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false)
+export function Hero({ onOpenAuthModal }: HeroProps) {
 
   return (
     <section className="relative h-screen overflow-hidden ">
@@ -40,9 +40,9 @@ export function Hero() {
 
           <CountdownTimer />
 
-          <button 
-          onClick={() => setIsRegisterModalOpen(true)}
-          className="mt-12 px-10 py-4 bg-white  font-semibold text-lg rounded-full hover:bg-gray-100 transition transform hover:scale-105 shadow-lg">
+          <button
+            onClick={() => onOpenAuthModal('register')}
+            className="mt-12 px-10 py-4 bg-white  font-semibold text-lg rounded-full hover:bg-gray-100 transition transform hover:scale-105 shadow-lg">
             Join Crew
           </button>
 
@@ -72,10 +72,6 @@ export function Hero() {
           alt=""
         />
       </div>
-                  <RegisterModal
-                      isOpen={isRegisterModalOpen}
-                      onClose={() => setIsRegisterModalOpen(false)}
-                  />
 
     </section>
   )

@@ -1,15 +1,20 @@
 'use client'
-import { useState } from "react"
-import RegisterModal from "./RegisterModal"
 
+interface CTAProps {
+  title?: string;
+  subtitle?: string;
+  date?: string;
+  image?: string;
+  onOpenAuthModal: (view: 'login' | 'register') => void;
+}
 
 const CTA = ({
   title = "APEX-AI : The AI Hackathon",
   subtitle = "10 Hours. Hundreds of developers. Infinite possibilities. Join the sprint to build solutions that actually matter.",
   date = "February 18, 2026",
-  image = "https://apex-assets-exl.pages.dev/image/bg-team.png"
-}) => {
-  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false)
+  image = "https://apex-assets-exl.pages.dev/image/bg-team.png",
+  onOpenAuthModal
+}: CTAProps) => {
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden font-sans">
       {/* Background Layer */}
@@ -46,7 +51,7 @@ const CTA = ({
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
           <button
-            onClick={() => setIsRegisterModalOpen(true)}
+            onClick={() => onOpenAuthModal('register')}
             className="group relative px-10 py-5 bg-white hover:bg-gray-600 text-black font-extrabold rounded-xl transition-all duration-300 transform hover:-translate-y-1 ">
             Register Now
           </button>
@@ -64,10 +69,6 @@ const CTA = ({
           </div>
         </div>
       </div>
-      <RegisterModal
-        isOpen={isRegisterModalOpen}
-        onClose={() => setIsRegisterModalOpen(false)}
-      />
     </section>
   );
 };

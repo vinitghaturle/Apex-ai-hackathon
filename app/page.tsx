@@ -14,6 +14,7 @@ import CTA from "@/components/CTA";
 import AboutUS from "@/components/AboutUS";
 import ProblemGrid, { ProblemStatement } from "@/components/ProblemGrid";
 import Specialps, { SpecialStatement } from "@/components/Specialps";
+import AuthModal from "@/components/AuthModal";
 
 const timelineData = [
   {
@@ -269,50 +270,58 @@ const sampleProblems: ProblemStatement[] = [
     ],
     expectedOutcome:
       "Improved employability and alignment between education and industry demands.",
-  },{
-  id: "12",
-  code: "PS-12",
-  title: "Open Innovation – AI Solutions for Real-World Impact",
-  organization: "GHRCE",
-  category: "Open Innovation",
-  description:
-    "Participants are invited to design and develop an AI-powered solution that addresses a real-world problem across any domain such as healthcare, agriculture, education, environment, finance, governance, accessibility, or industry. The solution must demonstrate practical applicability, scalability, and measurable impact.",
-  expectedSolution: [
-    "Identify and clearly define a real-world problem backed by research or data.",
-    "Develop an AI/ML-based prototype (e.g., computer vision, NLP, predictive analytics, recommendation systems, generative AI, etc.).",
-    "Demonstrate technical feasibility and real-world usability.",
-    "Provide a scalability and deployment roadmap.",
-    "Include impact metrics and validation strategy.",
-  ],
-  expectedOutcome:
-    "Innovative, scalable AI solutions with tangible real-world impact and potential for real deployment or startup incubation.",
-},
+  }, {
+    id: "12",
+    code: "PS-12",
+    title: "Open Innovation – AI Solutions for Real-World Impact",
+    organization: "GHRCE",
+    category: "Open Innovation",
+    description:
+      "Participants are invited to design and develop an AI-powered solution that addresses a real-world problem across any domain such as healthcare, agriculture, education, environment, finance, governance, accessibility, or industry. The solution must demonstrate practical applicability, scalability, and measurable impact.",
+    expectedSolution: [
+      "Identify and clearly define a real-world problem backed by research or data.",
+      "Develop an AI/ML-based prototype (e.g., computer vision, NLP, predictive analytics, recommendation systems, generative AI, etc.).",
+      "Demonstrate technical feasibility and real-world usability.",
+      "Provide a scalability and deployment roadmap.",
+      "Include impact metrics and validation strategy.",
+    ],
+    expectedOutcome:
+      "Innovative, scalable AI solutions with tangible real-world impact and potential for real deployment or startup incubation.",
+  },
 ];
 const specialProblems: SpecialStatement[] = [
   {
-  id: "1",
-  code: "PS-01",
-  title: "AI-Based Desert Scene Semantic Segmentation Challenge",
-  organization: "DEVNOVATES",
-  category: "AI / Computer Vision",
-  description:
-    "Participants are required to develop a semantic segmentation model for desert environment images using synthetic data. Teams must train, validate, and optimize an AI model capable of accurately segmenting various terrain categories under realistic constraints. The challenge emphasizes model accuracy, optimization, and structured reporting.",
-  expectedSolution: [
-    "Train and fine-tune a semantic segmentation model using the provided synthetic dataset.",
-    "Apply data augmentation and filtering strategies to improve generalization.",
-    "Evaluate performance on unseen test images.",
-    "Optimize model accuracy and reduce inference time.",
-    "Document the complete workflow including training process and evaluation metrics.",
-    "Prepare a structured technical report and presentation with visualizations such as loss graphs and performance curves."
-  ],
-  expectedOutcome:
-    "A fully trained semantic segmentation model with strong IoU performance, optimized inference efficiency, and a comprehensive evaluation report including failure case analysis and performance visualization.",
-}
+    id: "1",
+    code: "PS-01",
+    title: "AI-Based Desert Scene Semantic Segmentation Challenge",
+    organization: "DEVNOVATES",
+    category: "AI / Computer Vision",
+    description:
+      "Participants are required to develop a semantic segmentation model for desert environment images using synthetic data. Teams must train, validate, and optimize an AI model capable of accurately segmenting various terrain categories under realistic constraints. The challenge emphasizes model accuracy, optimization, and structured reporting.",
+    expectedSolution: [
+      "Train and fine-tune a semantic segmentation model using the provided synthetic dataset.",
+      "Apply data augmentation and filtering strategies to improve generalization.",
+      "Evaluate performance on unseen test images.",
+      "Optimize model accuracy and reduce inference time.",
+      "Document the complete workflow including training process and evaluation metrics.",
+      "Prepare a structured technical report and presentation with visualizations such as loss graphs and performance curves."
+    ],
+    expectedOutcome:
+      "A fully trained semantic segmentation model with strong IoU performance, optimized inference efficiency, and a comprehensive evaluation report including failure case analysis and performance visualization.",
+  }
 
 ];
 
 export default function Page() {
   const [done, setDone] = useState(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [authModalView, setAuthModalView] = useState<'login' | 'register'>('login');
+
+  const openAuthModal = (view: 'login' | 'register') => {
+    setAuthModalView(view);
+    setIsAuthModalOpen(true);
+  };
+
   return (
     <>
       {/* Preload critical images */}
@@ -352,17 +361,17 @@ export default function Page() {
         {/* Content Wrapper */}
         <div className="relative z-10">
           {/* Section 1 - Hero */}
-          <Navbar />
+          <Navbar onOpenAuthModal={openAuthModal} />
           <section className="pt-10">
             <section id="home">
-              <Hero />
+              <Hero onOpenAuthModal={openAuthModal} />
             </section>
           </section>
           <section id="about">
             <AboutUS />
           </section>
           <section id="tracks">
-            <Specialps problems={specialProblems}/>
+            <Specialps problems={specialProblems} />
             <ProblemGrid problems={sampleProblems} />
           </section>
           {/* <Time data={timelineData} /> */}
@@ -457,12 +466,18 @@ export default function Page() {
         </section> */}
 
           {/* Section 4 - CTA */}
-          <CTA />
+          <CTA onOpenAuthModal={openAuthModal} />
 
           {/* Section 5 - Footer */}
           <Footer />
         </div>
       </div>
+
+      <AuthModal
+        isOpen={isAuthModalOpen}
+        onClose={() => setIsAuthModalOpen(false)}
+        initialView={authModalView}
+      />
     </>
   )
 }

@@ -5,6 +5,7 @@ import { useAuth } from '@/lib/auth-context';
 import { CrewmateAvatar } from '@/components/crewmate-avatar';
 import { AmongUsButton } from '@/components/among-us-button';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 import DashboardCountdown from '@/components/DashboardCountdown';
 import { useState, useEffect } from 'react';
@@ -26,7 +27,7 @@ export default function DashboardPage() {
 
     const handleSignOut = async () => {
         await signOut();
-        router.push('/login');
+        router.push('/');
     };
 
     // Initial Fetch and Subscription
@@ -188,14 +189,19 @@ export default function DashboardPage() {
 
                 <div className="relative flex min-h-screen w-full flex-col z-10">
                     {/* Top Navigation Bar */}
-                    <header className="flex items-center justify-between border-b border-[#f42525]/20 bg-[#1a0b0b]/80 backdrop-blur-md px-6 md:px-12 py-4 z-40">
+                    <header className="flex items-center justify-between border-b border-[#f42525]/20 bg-[#1a0b0b]/80 backdrop-blur-md px-3 md:px-12 py-4 z-40">
                         <div className="flex items-center gap-3">
-                            <div className="size-8 text-[#f42525] flex items-center justify-center">
-
-                            </div>
-                            <div>
-                                <h2 className="text-white text-xl font-bold leading-tight tracking-tighter uppercase">Reactor Terminal v2.4</h2>
-                                <p className="text-[10px] text-[#f42525] font-bold tracking-[0.2em] uppercase">Status: System Compromised</p>
+                            
+                            <div className="gap-4 mr-2">
+                                {/* <h2 className="text-white lg:text-xl text-sm font-bold leading-tight tracking-tighter uppercase">Reactor Terminal v2.4</h2>
+                                <p className="lg:text-[10px] text-[8px] text-[#f42525] font-bold tracking-[0.2em] uppercase">Status: System Compromised</p> */}
+                                <Link href="/">
+                                    <img
+                                        alt="Logo"
+                                        className="relative lg:scale-150 scale-120 object-left w-40 md:w-60 h-auto object-contain cursor-pointer"
+                                        src="https://apex-assets-exl.pages.dev/image/LOGO.svg"
+                                    />
+                                </Link>
                             </div>
                         </div>
 

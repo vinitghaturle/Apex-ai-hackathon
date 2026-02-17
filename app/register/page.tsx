@@ -157,8 +157,8 @@ export default function RegisterPage() {
                             disabled={success}
                         >
                             <span className="flex items-center justify-center gap-2">
-                                <span className="material-symbols-outlined">person_add</span>
-                                Join The Crew
+                                <span className="material-symbols-outlined">
+                                Join The Crew</span>
                             </span>
                         </AmongUsButton>
                     </form>

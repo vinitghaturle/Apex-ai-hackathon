@@ -6,6 +6,7 @@ import { CrewmateAvatar } from '@/components/crewmate-avatar';
 import { AmongUsButton } from '@/components/among-us-button';
 import { AmongUsInput } from '@/components/among-us-input';
 import { useRouter } from 'next/navigation';
+import { Eye, EyeOff } from 'lucide-react';
 
 interface AuthModalProps {
     isOpen: boolean;
@@ -21,6 +22,7 @@ export default function AuthModal({ isOpen, onClose, initialView = 'login' }: Au
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     const { signIn, signUp } = useAuth();
     const router = useRouter();
@@ -130,22 +132,40 @@ export default function AuthModal({ isOpen, onClose, initialView = 'login' }: Au
                     />
 
                     <AmongUsInput
-                        type="password"
+                        type={showPassword ? "text" : "password"}
                         label="Access Code"
                         placeholder="••••••••"
                         value={password}
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
                         required
+                        endContent={
+                            <button
+                                type="button"
+                                onClick={() => setShowPassword(!showPassword)}
+                                className="text-white hover:text-white/80 transition-colors"
+                            >
+                                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                            </button>
+                        }
                     />
 
                     {view === 'register' && (
                         <AmongUsInput
-                            type="password"
+                            type={showPassword ? "text" : "password"}
                             label="Confirm Access Code"
                             placeholder="••••••••"
                             value={confirmPassword}
                             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setConfirmPassword(e.target.value)}
                             required
+                            endContent={
+                                <button
+                                    type="button"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    className="text-white hover:text-white/80 transition-colors"
+                                >
+                                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                                </button>
+                            }
                         />
                     )}
 
@@ -156,7 +176,7 @@ export default function AuthModal({ isOpen, onClose, initialView = 'login' }: Au
                         className="w-full mt-4"
                     >
                         <span className="flex items-center justify-center gap-2">
-                            <span className="material-symbols-outlined">{view === 'login' ? 'login' : 'person_add'}</span>
+                            
                             {view === 'login' ? 'Enter Skeld' : 'Join The Crew'}
                         </span>
                     </AmongUsButton>
